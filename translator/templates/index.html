@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Translator Unbabel</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+<p></p>
+<div class="container">
+    <h2>Translator Unbabel: English to Spanish</h2>
+    <p>Please enter the text and click in translate:</p>
+    <form method="POST" action="/">
+        <div class="form-group">
+            <textarea class="form-control" rows="5" id="text_to_translate" name="text_to_translate"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Translate</button>
+    </form>
+</div>
+
+<p></p>
+<div class="container">
+
+    <h2>Texts to translate (English to Spanish)</h2>
+    <p></p>
+    <table class="table table-bordered table-sm">
+        <thead>
+        <tr>
+            <th>Text to Translate</th>
+            <th>Status</th>
+            <th>Translation</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for translation in translations %}
+        <tr>
+            <td>{{translation.text}}</td>
+            <td>{{translation.status}}</td>
+            <td>{{translation.translation or ''}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p></p>
+</div>
+
+</body>
+</html>
